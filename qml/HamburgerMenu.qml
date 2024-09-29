@@ -17,46 +17,21 @@ Drawer{
         anchors.right: parent.right
         height: fieldMenu.height
 
-        color: "black"
+        color: "lightGray"
         ScrollViewExpandableColumn{
+
+            // Initialize a standard width for botton configurations
+            property int singleButtonWidth: (hamburgerMenuRoot.width * 0.8)
+            property int buttonHeight: 50
+
             id: hamburgerMenuColumn
-            anchors.fill: parent
-            ButtonColor{
-                text: "Languages"
-                onClicked: console.log("")
-                width: 250
-                height: 50
-                visible: false//todo
-            }
-            ButtonColor{
-                text: "Directories"
-                onClicked: console.log("")
-                width: 250
-                height: 50
-                visible: false//todo
-            }
-            ButtonColor{
-                text: "Colors"
-                onClicked: console.log("")
-                width: 250
-                height: 50
-            }
-            ButtonColor{
-                text: "Section Colors"
-                onClicked: console.log("")
-                width: 250
-                height: 50
-            }
-            ButtonColor{
-                text: "Enter Sim Coords"
-                onClicked: {
-                    console.log("showing")
-                    hamburgerMenuRoot.visible = false
-                    setSimCoords.show()
-                }
-                width: 250
-                height: 50
-            }
+            //anchors.fill: parent
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.topMargin: 25
+            anchors.leftMargin: ((parent.width - singleButtonWidth) / 2)
             ButtonColor{
                 text: "Simulator On"
                 property bool isChecked: settings.setMenu_isSimulatorOn
@@ -69,36 +44,8 @@ Drawer{
                 onCheckedChanged: {
                     settings.setMenu_isSimulatorOn = checked
                 }
-                width: 250
-                height: 50
-            }
-            ButtonColor{
-                text: "Reset All"
-                onClicked: console.log("")
-                width: 250
-                height: 50
-                visible: false//todo
-            }
-            ButtonColor{
-                text: "HotKeys"
-                onClicked: console.log("")
-                width: 250
-                height: 50
-                visible: false//todo
-            }
-            ButtonColor{
-                text: "About..."
-                onClicked: console.log("")
-                width: 250
-                height: 50
-                visible: false//todo
-            }
-            ButtonColor{
-                text: "Help"
-                onClicked: console.log("")
-                width: 250
-                height: 50
-                visible: false//todo
+                width: hamburgerMenuColumn.singleButtonWidth
+                height: hamburgerMenuColumn.buttonHeight
             }
         }
     }

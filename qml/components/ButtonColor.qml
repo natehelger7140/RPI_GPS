@@ -16,9 +16,14 @@ Button {
 
     property color color: "white"
 
-    property color colorHover: "white"
+    property color colorHover: "lightgray"
 
     property color colorChecked: "green"
+
+    property color textColor: "black"  // Default text color
+
+    property color textColorChecked: "lightgray"  // Text color when checked
+
 
 
     //For compatibility with the old IconButton and friends
@@ -56,4 +61,11 @@ Button {
         color: icon_button.checked ? icon_button.colorChecked : icon_button.color
 
     }
+
+    contentItem: Text {
+            text: icon_button.text
+            color: icon_button.checked ? icon_button.textColorChecked : icon_button.textColor  // Change text color based on checked state
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+        }
 }

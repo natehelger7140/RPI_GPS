@@ -99,6 +99,7 @@ Item {
                 isChecked: settings.setDisplay_isSvennArrowOn
                 onCheckedChanged: settings.setDisplay_isSvennArrowOn
             }
+            /*
             IconButtonColor{
                 id: compass
                 text: qsTr("Compass")
@@ -107,6 +108,7 @@ Item {
                 isChecked: settings.setMenu_isCompassOn
                 onCheckedChanged: settings.setMenu_isCompassOn
             }
+            */
             /*IconButtonColor{ //appears there is no setting for this
                 id: speedo
                 text: qsTr("Speedometer")

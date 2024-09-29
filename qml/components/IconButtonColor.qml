@@ -25,7 +25,7 @@ IconButton {
     colorChecked3: colorChecked
     property color color: aog.backgroundColor
     property color colorChecked: "#99ff99"
-    property color colorHover: "white"
+    property color colorHover: "lightgray"
     onButtonTextChanged: text = buttonText
 
     topInset: if(text.length>0)

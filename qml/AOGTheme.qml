@@ -18,9 +18,9 @@ Item {
 	property double scaleHeight: mainWindow.height / defaultHeight
 	property double scaleWidth: mainWindow.width / defaultWidth
 
-    property color backgroundColor: "ghostWhite"
+    property color backgroundColor: "firebrick"
     property color textColor: "black"
-    property color borderColor: "lightblue"
+    property color borderColor: "lightGray"
     property color blackDayWhiteNight: "black"
 	property var btnSizes: [100, 100, 100]//clockwise, right bottom left
 	property int buttonSize: 100
@@ -46,14 +46,14 @@ Item {
         target: settings
         function onSetDisplay_isDayModeChanged(){
             if (settings.setDisplay_isDayMode){
-                backgroundColor = "ghostWhite"
+                backgroundColor = "firebrick"
                 textColor = "black"
-                borderColor = "lightBlue"
+                borderColor = "lightGray"
                 blackDayWhiteNight = "black"
 				whiteDayBlackNight = "white"
             }
             else{
-                backgroundColor = "darkgray"
+                backgroundColor = "firebrick"
                 textColor = "white"
                 borderColor= "lightGray"
                 blackDayWhiteNight = "white"

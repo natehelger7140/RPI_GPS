@@ -79,10 +79,12 @@ Window {
 			console.log("steerConfigWindow visible") 
 			return true
 		}
+        /*
 		else if (abCurvePicker.visible == true) {
 			console.log("abCurvePicker visible") 
 			return true
 		}
+        */
 		else if (abLinePicker.visible == true) {
 			console.log("abLinePicker visible") 
 			return true
@@ -181,7 +183,7 @@ Window {
         anchors.right: parent.right
         anchors.bottom:  parent.bottom
 
-		color: "black"
+        color: "pink"
 			 /*
 			  Text {
 				  id: text2
@@ -590,7 +592,7 @@ Window {
             }
         }
         //------------------------------------------------------------------------------------------right
-
+        /*
         Speedometer {
             anchors.top: parent.top
             anchors.right: rightColumn.left
@@ -618,6 +620,7 @@ Window {
 
         }
 
+        */
 
         ColumnLayout {
             id: rightColumn
@@ -626,7 +629,7 @@ Window {
             anchors.bottom: parent.bottom
             anchors.topMargin: topLine.height + 6
             anchors.rightMargin: 6
-
+            /*
             visible: aog.isJobStarted
 
 			onHeightChanged: {
@@ -638,6 +641,7 @@ Window {
                                   width = 0
                               else
                                   width = children.width
+
 
             IconButtonText {
                 id: btnContour
@@ -751,11 +755,11 @@ Window {
                 onCheckedChanged: {
                     if (checked) {
                         btnSectionAuto.checked = false;
-                        sectionButtons.setAllSectionsToState(2 /*auto*/);
+                        sectionButtons.setAllSectionsToState(2);     //auto
                         aog.manualBtnState = 2 //btnStates::on
 
                     } else {
-                        sectionButtons.setAllSectionsToState(0 /*off*/);
+                        sectionButtons.setAllSectionsToState(0);    //off
                         aog.manualBtnState = 0
                     }
                 }
@@ -774,10 +778,10 @@ Window {
                 onCheckedChanged: {
                     if (checked) {
                         btnSectionManual.checked = false;
-                        sectionButtons.setAllSectionsToState(1 /*auto*/);
+                        sectionButtons.setAllSectionsToState(1);     //auto
                         aog.autoBtnState = 1 //btnStates::auto
                     } else {
-                        sectionButtons.setAllSectionsToState(0 /*off*/);
+                        sectionButtons.setAllSectionsToState(0);    //off
                         aog.autoBtnState = 0
                     }
                 }
@@ -841,6 +845,7 @@ Window {
                     }
                 }
             }
+            */
         }
 
         Column {
@@ -850,7 +855,7 @@ Window {
             anchors.right: rightColumn.left
             anchors.rightMargin: 3
             spacing: 3
-
+            /*
             IconButton {
                 id: btnContourPriority
                 objectName: "btnContourPriority"
@@ -860,6 +865,7 @@ Window {
                 icon.source: "/images/ContourPriorityLeft.png"
                 iconChecked: "/images/ContourPriorityRight.png"
             }
+            */
         }
         RowLayout{
             id:bottomButtons
@@ -870,10 +876,6 @@ Window {
             anchors.rightMargin: theme.buttonSize + 3
             visible: aog.isJobStarted && leftColumn.visible
 
-           /* onVisibleChanged: if(visible == false)
-                                  height = 0
-                              else
-                                  height = children.height*/
             //spacing: parent.rowSpacing
 			onWidthChanged: {
 				theme.btnSizes[1] = width / (children.length) 
@@ -886,6 +888,7 @@ Window {
 					height = children.height				
 
 			}
+            /*
             ComboBox {
                 id: skips
                 editable: true
@@ -1015,6 +1018,7 @@ Window {
 				implicitWidth: theme.buttonSize
 				implicitHeight: theme.buttonSize
             }
+            */
 
         }
         //----------------inside buttons-----------------------
@@ -1040,6 +1044,7 @@ Window {
                 iconChecked: "/images/SwitchOff.png"
                 onClicked: aog.panMode = !aog.panMode
             }
+            /*
             Image{
                 id: hydLiftIndicator
                 property bool isDown: aog.hydLiftDown
@@ -1059,6 +1064,7 @@ Window {
                     }
                 }
             }
+
             MultiEffect{
                 id: hydLiftIndicatorColor
                 anchors.fill: hydLiftIndicator
@@ -1067,7 +1073,7 @@ Window {
                 colorization: 1.0
                 source: hydLiftIndicator
             }
-
+            */
             OutlineText{
                 id: simulatorOnText
                 visible: settings.setMenu_isSimulatorOn
@@ -1101,7 +1107,7 @@ Window {
                                    console.log("rtk alarm sound")
 
             }
-
+            /*
             Item{
                 id: autoTurn
                 anchors.top:manualUturnLateral.top
@@ -1145,7 +1151,9 @@ Window {
                                   "--"
                     }
                 }
+
             }
+            */
 			Grid{
 				spacing: 10
 				rows: 2
@@ -1155,6 +1163,7 @@ Window {
 				anchors.left: parent.left
 				anchors.topMargin: 30
 				anchors.leftMargin: 150
+                /*
 				visible: aog.isAutoSteerBtnOn
 				IconButtonTransparent{
 					implicitHeight: 65 * theme.scaleHeight
@@ -1210,6 +1219,7 @@ Window {
 						aog.convert_speed_text(settings.setAS_functionSpeedLimit,1) + " " + aog.speed_unit())
 					}
 				}
+                */
 			}
         LightBar {
             id: lightbar
@@ -1222,7 +1232,7 @@ Window {
                        settings.setMenu_isLightbarOn === "true")) ?
                          true : false
         }
-
+        /*
         TrackNum {
             id: tracknum
             anchors.top: lightbar.bottom
@@ -1244,9 +1254,11 @@ Window {
                        (aog.currentABCurve > -1)))
             //TODO add contour
         }
+        */
 
         //Components- this is where the windows that get displayed over the
         //ogl get instantiated.
+        /*
         FieldData{
             id: fieldData
             anchors.left: parent.left
@@ -1259,7 +1271,7 @@ Window {
             anchors.verticalCenter: parent.verticalCenter
             visible: false
         }
-
+        */
         SimController{
             id: simBarRect
             anchors.bottom: timeText.top
@@ -1269,10 +1281,12 @@ Window {
 			height: 60 * theme.scaleHeight
 			onHeightChanged: anchors.bottomMargin = (8 * theme.scaleHeight)
         }
+        /*
         RecPath{// recorded path menu
             id: recPath
             visible: false
         }
+        */
 
         OutlineText{
             id: timeText
@@ -1289,6 +1303,7 @@ Window {
                 onTriggered: timeText.text = new Date().toLocaleTimeString(Qt.locale())
             }
         }
+        /*
         SectionButtons {
             id: sectionButtons
             visible: aog.isJobStarted ? true : false
@@ -1299,6 +1314,8 @@ Window {
             width: 500  * theme.scaleWidth
 			//onHeightChanged: anchors.bottomMargin = (bottomButtons.height + simBarRect.height + (24 * theme.scaleHeight))
         }
+        */
+        /*
         DisplayButtons{
             id: displayButtons
             width: childrenRect.width + 10
@@ -1310,7 +1327,8 @@ Window {
             visible: false
             z:1
         }
-
+        */
+        /*
         TrackButtons{
             id: trackButtons
             anchors.right: parent.right
@@ -1334,18 +1352,21 @@ Window {
                            leftColumn.visible = true
                        }
         }
+        */
+        /*
         Compass{
             id: compass
             anchors.top: parent.top
             anchors.right: zoomBtns.left
             heading: -utils.radians_to_deg(aog.heading)
         }
+        */
         Column{
             id: zoomBtns
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.margins: 10
-            spacing: 100
+            spacing: 5
             width: children.width
             IconButton{
                 implicitWidth: 30 * theme.scaleWidth
@@ -1365,7 +1386,7 @@ Window {
     }
 
 
-
+        /*
         SliderCustomized { //quick dirty hack--the up and down buttons change this value, so the speed changes
             id: speedSlider
             //anchors.bottom: bottomButtons.top
@@ -1399,6 +1420,8 @@ Window {
             id: toolsMenu
             visible: false
         }
+        */
+
         HamburgerMenu{
             id: hamburgerMenu
             visible: false
@@ -1424,6 +1447,7 @@ Window {
             }
 
         }
+
         HeadlandDesigner{
             id: headlandDesigner
             objectName: "headlandDesigner"
@@ -1438,6 +1462,7 @@ Window {
             //anchors.verticalCenter: parent.verticalCenter
             visible: false
         }
+
         SteerConfigWindow {
             id:steerConfigWindow
             visible: false
@@ -1447,6 +1472,7 @@ Window {
 			anchors.fill: parent
 			visible: false
 		}
+
         ABCurvePicker{
             id: abCurvePicker
             objectName: "abCurvePicker"
@@ -1465,6 +1491,7 @@ Window {
             anchors.topMargin: 50
             visible: false
         }
+
         LineEditor{
             id: lineEditor
             anchors.right: parent.right
